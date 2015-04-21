@@ -1,12 +1,5 @@
-studentRoster.controller('StudentsCtrl', function StudentsCtrl($scope){
-    $scope.students = [];
-    $scope.addStudent = function(){
-        $scope.students.push({ name: $scope.studentName });
-        $scope.studentName = null;
-    };
+studentRoster.controller('StudentsCtrl', function StudentsCtrl($scope, StudentsFactory){
+    $scope.students = StudentsFactory.students;
+    $scope.StudentsFactory = StudentsFactory;
 
-    $scope.deleteStudent = function(student) {
-        var index = $scope.students.indexOf(student);
-        $scope.students.splice(index, 1);
-    }
 });
